@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34309.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iTEC Hackathon", "iTEC Hackathon\iTEC Hackathon.csproj", "{10A69714-B15A-47CC-A854-404609685E6F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{10A69714-B15A-47CC-A854-404609685E6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10A69714-B15A-47CC-A854-404609685E6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10A69714-B15A-47CC-A854-404609685E6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10A69714-B15A-47CC-A854-404609685E6F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {95FF0215-C890-468F-B834-DEA9EDCF202D}
+	EndGlobalSection
+EndGlobal
