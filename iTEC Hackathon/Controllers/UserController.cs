@@ -1,8 +1,13 @@
-﻿using iTEC_Hackathon.DTOs.User;
+﻿using Dapper;
+using iTEC_Hackathon.DTOs.EndpointHistory;
+using iTEC_Hackathon.DTOs.User;
+using iTEC_Hackathon.Infrastructure;
+using iTEC_Hackathon.Interfaces;
 using iTEC_Hackathon.Interfaces.User;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ActionConstraints;
+using System.Data;
 using System.Diagnostics.Eventing.Reader;
 
 namespace iTEC_Hackathon.Controllers
@@ -13,16 +18,19 @@ namespace iTEC_Hackathon.Controllers
         private readonly IRegisterUserRepository _registerUserRepository;
         private readonly IGetUserApplicationsInfoRepository _getUserApplicationsInfoRepository;
         private readonly IGetIsUserAuthorRepository _getIsUserAuthorRepository;
+        private readonly IDbConnectionFactory _dbconnectionFactory;
 
-        public UserController(ILoginUserRepository loginUserRepository, 
-            IRegisterUserRepository registerUserRepository, 
+        public UserController(ILoginUserRepository loginUserRepository,
+            IRegisterUserRepository registerUserRepository,
             IGetUserApplicationsInfoRepository getUserApplicationsInfoRepository,
-            IGetIsUserAuthorRepository getIsUserAuthorRepository)
+            IGetIsUserAuthorRepository getIsUserAuthorRepository,
+            IDbConnectionFactory dbConnectionFactory)
         {
             _loginUserRepository = loginUserRepository;
             _registerUserRepository = registerUserRepository;
             _getUserApplicationsInfoRepository = getUserApplicationsInfoRepository;
             _getIsUserAuthorRepository = getIsUserAuthorRepository;
+            _dbconnectionFactory = dbConnectionFactory;
         }
 
         [HttpPost]
@@ -51,7 +59,7 @@ namespace iTEC_Hackathon.Controllers
 
         [HttpGet]
         [Route("GetUserApplicationsInfo")]
-        public async Task<IActionResult> GetUserApplicationsInfoAsync( int idUser)
+        public async Task<IActionResult> GetUserApplicationsInfoAsync(int idUser)
         {
             var userApplicationsInfo = await _getUserApplicationsInfoRepository.GetUserApplicationsInfoAsyncRepo(idUser);
 
@@ -71,6 +79,21 @@ namespace iTEC_Hackathon.Controllers
                 return Ok(isAuthor);
             else
                 return BadRequest("No applications found.");
-        }   
+        }
+
+        [HttpGet]
+        [Route("GetEmailByID")]
+
+        public IActionResult GetEmailbyId(int UserId)
+        {
+            var parameters = new DynamicParameters();
+            parameters.Add("@ApplicationId", UserId);
+            using (var connection = _dbconnectionFactory.ConnectToDataBase())
+            {
+                var result =connection.Query<string>("GetEmailByUserId", parameters, commandType: CommandType.StoredProcedure);
+                return Ok(result);
+            }
+            
+        }
     }
 }

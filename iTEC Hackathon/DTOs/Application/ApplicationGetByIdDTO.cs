@@ -4,6 +4,7 @@
     {
         public string Name { get; set; }
         public string Description { get; set; }
+        public int IdUser { get; set; }
         public string UserEmail { get; set; }
         public string ApplicationState { get; set; }
         public string Image { get; set; }

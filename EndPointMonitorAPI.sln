@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34309.116
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iTEC Hackathon", "iTEC Hackathon\iTEC Hackathon.csproj", "{10A69714-B15A-47CC-A854-404609685E6F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EndPointMonitorAPI", "iTEC Hackathon\EndPointMonitorAPI.csproj", "{10A69714-B15A-47CC-A854-404609685E6F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

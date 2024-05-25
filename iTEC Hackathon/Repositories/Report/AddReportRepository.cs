@@ -19,12 +19,12 @@ namespace iTEC_Hackathon.Repositories.Report
             var parameters = new DynamicParameters();
 
             DateTime myDateTime = DateTime.Now;
-            string sqlFormattedDate = myDateTime.ToString("yyyy-MM-dd HH:mm:ss.fff");
+            
 
             parameters.Add("@IdApplication", reportInsertDTO.IdApplication);
             parameters.Add("@IdEndpoint", reportInsertDTO.IdEndpoint);
             parameters.Add("@IdUser", reportInsertDTO.IdUser);
-            parameters.Add("@DateCreated", sqlFormattedDate);
+            parameters.Add("@DateCreated", myDateTime);
             parameters.Add("@Mentions", reportInsertDTO.Mentions);
             parameters.Add("@MarkedAsSolved", 0);
             parameters.Add("@IdApplicationReport", dbType: DbType.Int32, direction: ParameterDirection.Output);

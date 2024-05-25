@@ -60,7 +60,7 @@ namespace iTEC_Hackathon
             services.AddScoped<IGetTotalNumbersOfRecordsRepository, GetTotalNumbersOfRecordsRepository>();
             services.AddScoped<IGetTotalNumberOfEndpointsByStateRepository, GetTotalNumberOfEndpointsByStateRepository>();
             services.AddScoped<IGetTotalNumberOfReportsBySolvedRepository, GetTotalNumberOfReportsBySolvedRepository>();
-
+            services.AddScoped<IEmailService,EmailService>();
 
             return services;
         }

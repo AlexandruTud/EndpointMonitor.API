@@ -4,6 +4,7 @@
     {
         public int IdApplicationReport { get; set; }
         public string URL { get; set; }
+        public int IdUser { get; set; }
         public string Email { get; set; }
         public string Name { get; set; }
         public string Type { get; set; }
